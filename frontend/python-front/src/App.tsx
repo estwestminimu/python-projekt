@@ -1,9 +1,22 @@
-import { useState } from 'react'
+import { useState } from "react";
+
 
 function App() {
+  //hooki musza byc wywolywane na najwyzszym poziomie komponentu
+  const [count, setCount] = useState(0)
+
+  function handleSubmit()
+  {
+    setCount(prev => prev+1)
+  }
+
+
+
   return (
     <>
-      <h1>hej</h1>
+     <button onClick={handleSubmit}>
+      Przeslij dane {count}
+      </button>
     </>
   )
 }
