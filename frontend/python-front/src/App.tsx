@@ -5,13 +5,13 @@ function App() {
   //hooki musza byc wywolywane na najwyzszym poziomie komponentu
   const [count, setCount] = useState(0)
   const [data, setData] = useState(null)
-  const serverUrl = 'http://127.0.0.1:8000/items/1';
+  const serverUrl = 'http://127.0.0.1:8000/items/';
 
 
   async function fetchData()
   {
     try{
-      const response = await fetch(serverUrl);
+      const response = await fetch(serverUrl+(count+1));
       const json = await response.json();
       setData(json)
 
@@ -32,6 +32,8 @@ function App() {
 
   return (
     <>
+    <input>
+    </input>
      <button onClick={handleSubmit}>
       Przeslij dane {count}
       </button>

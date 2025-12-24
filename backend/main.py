@@ -3,15 +3,18 @@ from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from logic import proces_data
+
 
 app = FastAPI()
 
-
+# Porty z ktorych moze przychodzic zapytanie API
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
 ]
 
+# middleware niwelujacy CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -27,5 +30,6 @@ def read_root():
 
 
 @app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+def read_item(item_id: str):
+    result = proces_data(item_id)
+    return result
