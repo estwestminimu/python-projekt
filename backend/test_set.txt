@@ -1,0 +1,18 @@
+Każdy kwadrat jest prostokątem. 
+Żaden pełnomocnik nie jest adwokatem.
+Żaden płaz nie jest ssakiem. 
+Niektóre ptaki nie są latające.
+Niektóre liczby są pierwsze.
+Każda umowa sprzedaży jest umową odpłatną
+Tylko prokuratorzy są oskarżycielami publicznymi.
+Niektórzy artyści są rzeźbiarzami.
+Każdy rzeźbiarz jest twórcą.
+Każdy lekarz ma wykształcenie.
+Żaden lekarz nie jest amatorem.
+Niektórzy biegacze nie są maratończykami.
+Żaden maratończyk nie jest leniwy.
+Niektórzy programiści pracują zdalnie.
+Niektórzy programiści nie znają języka C.
+Każdy matematyk jest wizjonerem.
+Niektórzy logicy nie są matematykami.
+Niektórzy prawnicy nie są niezaradni

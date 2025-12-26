@@ -12,6 +12,7 @@ def text_after_keyword(input: str, keyword: str):
     return input.split(keyword)[1]
 
 
+# nie jestem pewien, co miałaby robić ta funkcja? Nie zawsze będzie słowo jest, czasami pojawi się „są". 
 def proces_data(input):
     before = text_before_keyword(input, "jest")
     jest = contains_keyword(input, "jest")
@@ -27,4 +28,4 @@ def proces_data(input):
 # TODO: 
 # Dodać dyrektywe 2 i 3
 
-#Test
+
