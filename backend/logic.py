@@ -1,4 +1,3 @@
-
 from grammar_ai import pobierz_odpowiedz
 
 def contains_keyword(input: str, keyword: str):
@@ -27,3 +26,5 @@ def proces_data(input):
 
 # TODO: 
 # Dodać dyrektywe 2 i 3
+
+#Test
