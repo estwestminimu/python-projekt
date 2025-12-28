@@ -1,4 +1,5 @@
 from collections import Counter
+import re
 
 class Syllogism:
     
@@ -186,27 +187,52 @@ class Syllogism:
         #tutaj trzeba zwrócić to, co trzeba wyeliminować
         #moze zwracac None, trzeba to jakos ogarnąc // pamiętać o tym 
         return to_exclude
-
     
 
-    #TODO
-    def directive_six(fpremises : list, possible_conclusions : list) -> str:
-        #tutaj trzeba zwrócić to, co trzeba wyeliminować
-        '''jeżeli termin jest „rozłożony” we wniosku, to musi być „rozłożony” także w przesłance'''
-        pass 
+    def search_term(self, premise: str) -> set:
 
+        rozlozone = set()
 
-syllog = Syllogism("S'aM'", "P'oS'", formalized= True)
-print(syllog.directive_one())
-print(syllog.directive_two())
-print(syllog.directive_three())
-print(syllog.directive_four())
-print(syllog.directive_five())
-print(syllog.possible_consequences)
-# print([premise.replace("M", "M'") for premise in syllog.possible_consequences])
+        patterns = [
+            r'([A-Z])a',  
+            r'([A-Z])e',  
+            r'e([A-Z])',  
+            r'o([A-Z])', 
+        ]
 
+        for pattern in patterns:
+            match = re.search(pattern, premise)
+            if match:
+                rozlozone.add(match.group(1)) 
 
+        return rozlozone
 
+    def directive_six(self):
+        '''
+        Dyrektywa 6: jeżeli termin jest „rozłożony" we wniosku, to musi być „rozłożony" także w przesłance.
 
+        :return: Lista wniosków do wyeliminowania (które naruszają dyrektywę)
+        '''
+        # zbieramy wszystkie rozłożone terminy ze wszystkich przesłanek
+        rozlozone_w_przeslankach = set()
+        for premise in self.premises_for_directives:
+            rozlozone_w_przeslankach.update(self.search_term(premise))
 
-    
+        to_exclude = []
+
+        
+        for consequence in self.possible_consequences:
+            rozlozone_we_wniosku = self.search_term(consequence)
+
+            # sprawdzamy czy wszystkie rozłożone we wniosku są też rozłożone w przesłankach
+            niespelnione = rozlozone_we_wniosku - rozlozone_w_przeslankach
+
+            if niespelnione:
+                # Ten wniosek narusza dyrektywę 6, więc dodajemy do listy wykluczeń
+                to_exclude.append(consequence)
+
+        #trzeba usunąć wnioski naruszające dyrektywę z listy możliwych wniosków
+        self.possible_consequences = [pc for pc in self.possible_consequences
+                                      if pc not in to_exclude]
+
+        return to_exclude
