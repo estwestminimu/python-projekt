@@ -31,7 +31,7 @@ class Syllogism:
         types_of_sentences = ["a", "e", "i", "o"]
 
         #### obsługa błędów: trzeba połączyć z API
-        if self.terms_dict.keys() == 3:
+        if len(self.terms_dict.keys()) == 3:
             raise ValueError("Przesłanki muszą zawierać 3 terminy")
         
         ### tutaj nieco redundantnie, ale trzeba sprawdzić dyrketywę 0;
