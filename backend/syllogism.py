@@ -30,6 +30,7 @@ class Syllogism:
         self.terms_dict = dict(Counter(t for terms in premises_in_init for t in terms if t == t.upper()))
         types_of_sentences = ["a", "e", "i", "o"]
 
+
         #### obsługa błędów: trzeba połączyć z API
         if len(self.terms_dict.keys()) == 3:
             raise ValueError("Przesłanki muszą zawierać 3 terminy")
