@@ -4,6 +4,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from logic import proces_data
+from inputValidation import validate_data
+
 
 
 from pydantic import BaseModel
@@ -64,8 +66,10 @@ async def read_user(data: UserInput):
     
     # TODO dodać walidacje 
 
+    # Sprawdzamy 
 
-    if random.randint(0,10)<5:
+
+    if validate_data(data):
     # if True
         return {"msg": True}   
     else:
