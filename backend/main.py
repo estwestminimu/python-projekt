@@ -62,8 +62,11 @@ class UserInput(BaseModel):
 async def read_user(data: UserInput):
     print(data)
     
-    # if random.randint(0,10)<5:
-    if True:
+    # TODO dodać walidacje 
+
+
+    if random.randint(0,10)<5:
+    # if True
         return {"msg": True}   
     else:
         return {"msg": False}
