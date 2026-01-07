@@ -1,1 +1,1 @@
- **Aplikacja do nauki sylogistyki** - Rachunku logicznego zapoczątkowanego przez Arystotelesa i rozwijanego przez średniowiecznych logików.
+ **Aplikacja do nauki sylogistyki** - rachunku logicznego zapoczątkowanego przez Arystotelesa i rozwijanego przez średniowiecznych logików.

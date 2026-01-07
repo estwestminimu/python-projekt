@@ -6,6 +6,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from logic import proces_data
 
 
+from pydantic import BaseModel
+
+
+# do testowania potem usunać
+
+
+import random
+
+# 
+
+
+
 app = FastAPI()
 
 # Porty z ktorych moze przychodzic zapytanie API
@@ -33,3 +45,26 @@ def read_root():
 def read_item(item_id: str):
     result = proces_data(item_id)
     return result
+
+
+# definicja wygladu json
+
+class UserInput(BaseModel):
+    firstSentence: str
+    firstScheme: str
+    secondSentence: str
+    secondScheme: str
+
+
+
+
+@app.post("/validation")
+async def read_user(data: UserInput):
+    print(data)
+    
+    # if random.randint(0,10)<5:
+    if True:
+        return {"msg": True}   
+    else:
+        return {"msg": False}
+        
