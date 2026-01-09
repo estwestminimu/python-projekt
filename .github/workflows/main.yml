@@ -1,0 +1,20 @@
+name "Syllogism"
+
+# uruchamiamy
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  runs-on: ubuntu-latest
+
+  steps:
+  - name: Instalacja paczek
+  run: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+
+  - name: Testy
+   command: python -m pytest -q test_python
