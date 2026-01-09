@@ -7,13 +7,12 @@
 ## Demo
 - Aplikacja: https://python-projekt.vercel.app
 - API: https://syllogism.onrender.com/validation
-    - Dokumentacja API (Swagger UI): https://syllogism.onrender.com/docs
+    - Dokumentacja (Swagger UI): https://syllogism.onrender.com/docs
 
 ## Technologie
 ### Frontend
 - React (Vite)
 ### Backend
-- Python3
 - FastAPI
 
 ## Minimalne Wymagania
@@ -45,8 +44,10 @@
 ### Backend
 W folderze ``backend``:
 ```bash
-pip install -r backend/requirements.txt
-npm run dev 
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+fastapi dev main.py
 ```
 
 ### Frontend
