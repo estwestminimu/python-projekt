@@ -6,13 +6,14 @@ def containsOnlyValidLetters(input):
     if len(input) != 3:
           return False
     
+    if not input.isalpha():
+        return False 
 
-    #duza, mala, duza litera
     if input[0].islower() or input[1].isupper() or input[2].islower():
         return False
 
 
-    validLetters = f"^[spaowcm]+$"
+    validLetters = f"^[spaowcmlui]+$"
     # print(re.match(validLetters, input.lower()))
 
     return bool(re.match(validLetters, input.lower()))

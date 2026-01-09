@@ -11,6 +11,11 @@ from inputValidation import validate_data
 from pydantic import BaseModel
 
 
+
+from jsonOutputFormater import jsonOutputFormater
+
+
+
 # do testowania potem usunać
 
 
@@ -62,7 +67,7 @@ class UserInput(BaseModel):
 
 @app.post("/validation")
 async def read_user(data: UserInput):
-    print(data)
+    # print(data)
     
     # TODO dodać walidacje 
 
@@ -70,8 +75,9 @@ async def read_user(data: UserInput):
 
 
     if validate_data(data):
-    # if True
-        return {"msg": True}   
+
+
+        return jsonOutputFormater(data)  
     else:
         return {"msg": False}
         
