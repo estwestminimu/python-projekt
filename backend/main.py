@@ -44,16 +44,6 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: str):
-    result = proces_data(item_id)
-    return result
-
 
 # definicja wygladu json
 
