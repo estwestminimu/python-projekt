@@ -36,8 +36,11 @@ function UserSchemaInput() {
 
 
       try {
+      // @ts-ignore
+         const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+
         //Wysylamy dane do api wedlug naszych inputow
-        const request = await axios.post('http://127.0.0.1:8000/validation',{
+        const request = await axios.post(`${API_URL}/validation`,{
           firstSentence: firstSentence,
           firstScheme: firstScheme,
           secondSentence: secondSentence,
