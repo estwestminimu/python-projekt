@@ -13,10 +13,8 @@ def containsOnlyValidLetters(input):
         return False
 
 
-    validLetters = f"^[spaowcmlui]+$"
-    # print(re.match(validLetters, input.lower()))
 
-    return bool(re.match(validLetters, input.lower()))
+    return bool
 
 
 
