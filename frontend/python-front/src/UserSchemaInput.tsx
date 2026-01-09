@@ -2,8 +2,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import InputFeedback from './InputFeedback.tsx'
-
-
+import FirstDirectives from './FirstDirectives.tsx'
+import SecondDirectives from './SecondDirectives.tsx'
+import UserTypeInput from './UserTypeInput.tsx'
 
 function UserSchemaInput() {
   // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
@@ -91,6 +92,15 @@ function UserSchemaInput() {
                 </button>
                 <h1>test {JSON.stringify(data)}</h1>
             </label>
+
+    <UserTypeInput/>
+       <h1>2</h1>
+
+       <br/>
+      <FirstDirectives data={data}/>
+       <br/>
+       <h1>3</h1>
+      <SecondDirectives data={data}/>
 
         </>
     )

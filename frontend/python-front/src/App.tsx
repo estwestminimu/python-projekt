@@ -23,14 +23,7 @@ function App() {
        <h1>1</h1>
 
       <UserSchemaInput/>
-      <UserTypeInput/>
-       <h1>2</h1>
-
-       <br/>
-      <FirstDirectives/>
-       <br/>
-       <h1>3</h1>
-      <SecondDirectives/>
+  
 
 
 
