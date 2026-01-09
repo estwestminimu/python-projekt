@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-function compareArray(arr1, arr2){
+function compareArray(arr1: string[], arr2: string[]){
   
   if(arr2.length==0 && arr2.length==0)
   {
@@ -23,14 +23,18 @@ function compareArray(arr1, arr2){
     return true;
 }
 
+type SecondDirectivesProps = {
+    data: {
+    directive_four: string[];
+    directive_five: string[];
+    directive_six: string[];
+  } | null;
+};
 
-
-function SecondDirectives({ data }) {
-  const [corectdirectiveD, setcorectdirectiveD] = useState(null)
-  const [corectdirectiveE, setcorectdirectiveE] = useState(null)
-  const [corectdirectiveF, setcorectdirectiveF] = useState(null)
-
-  const [arrayTest, setArrayTest] = useState([])
+function SecondDirectives({ data }: SecondDirectivesProps) {
+  const [corectdirectiveD, setcorectdirectiveD] = useState<boolean>(false);
+  const [corectdirectiveE, setcorectdirectiveE] = useState<boolean>(false);
+  const [corectdirectiveF, setcorectdirectiveF] = useState<boolean>(false);
 
   return (
     <>
@@ -46,9 +50,8 @@ function SecondDirectives({ data }) {
           .replaceAll(' ', '')
           .split(',')
           .map(x => x);
-          setArrayTest(arrayA);
           // console.log(arrayTest)
-          setcorectdirectiveD(compareArray(arrayA, data.directive_four))
+          setcorectdirectiveD(compareArray(arrayA, data?.directive_four ?? []))
 
         }} />
 
@@ -67,9 +70,8 @@ function SecondDirectives({ data }) {
           .replaceAll(' ', '')
           .split(',')
           .map(x => x);
-          setArrayTest(arrayA);
           // console.log(arrayTest)arrayA
-          setcorectdirectiveE(compareArray(arrayA, data.directive_five))
+          setcorectdirectiveE(compareArray(arrayA,data?.directive_five ?? []))
 
         }
 
@@ -90,9 +92,8 @@ function SecondDirectives({ data }) {
           .replaceAll(' ', '')
           .split(',')
           .map(x => x);
-          setArrayTest(arrayA);
           // console.log(arrayTest)
-          setcorectdirectiveF(compareArray(arrayA, data.directive_six))
+          setcorectdirectiveF(compareArray(arrayA, data?.directive_six ?? []))
 
 
           }

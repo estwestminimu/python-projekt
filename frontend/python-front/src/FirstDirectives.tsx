@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react"
 
+type FirstDirectivesProps = {
+  data: any;
+};
 
-function FirstDirectives({ data }) {
-  const [corectdirectiveA, setcorectdirectiveA] = useState(null)
-  const [corectdirectiveB, setcorectdirectiveB] = useState(null)
-  const [corectdirectiveC, setcorectdirectiveC] = useState(null)
 
-  const [selectA, setselectA] = useState(null)
-  const [selectB, setselectB] = useState(null)
-  const [selectC, setselectC] = useState(null)
+function FirstDirectives({ data }: FirstDirectivesProps) {
+  const [corectdirectiveA, setcorectdirectiveA] = useState<boolean | null>(null);
+  const [corectdirectiveB, setcorectdirectiveB] =useState<boolean | null>(null);
+  const [corectdirectiveC, setcorectdirectiveC] = useState<boolean | null>(null);
+
+  const [selectA, setselectA] = useState<string | null>(null);
+  const [selectB, setselectB] = useState<string | null>(null);
+  const [selectC, setselectC] = useState<string | null>(null);
 
 
 useEffect(() => {

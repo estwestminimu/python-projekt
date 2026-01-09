@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import InputFeedback from './InputFeedback.tsx'
 import FirstDirectives from './FirstDirectives.tsx'
@@ -69,7 +69,7 @@ function UserSchemaInput() {
 
     return (
         <>
-        <InputFeedback status={isInputCorrect}/>
+        <InputFeedback status={isInputCorrect ? 'success' : 'warning'}/>
             <label>
                 Zdanie 1: 
                 <input name="myInput" value={firstSentence}

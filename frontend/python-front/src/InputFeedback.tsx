@@ -1,9 +1,17 @@
 
 
-function InputFeedback({status}) {
+type InputFeedbackProps = {
+  status: 'success' | 'error' | 'warning';
+};
+
+
+function InputFeedback({status}: InputFeedbackProps) {
   return(
-    <h1 style={{color: status ? "green": "red"}}>
-      {status ? "" : "Błędny zapis, dalsze warunki nie są sprawdzane."}
+    <h1>
+      {status === 'success' && 'Poprawnie!'}
+     {status === 'error' && 'Błąd!'}
+     {status === 'warning' && 'Uwaga!'}
+
     </h1>
   );
 }
