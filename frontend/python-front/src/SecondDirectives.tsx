@@ -48,7 +48,7 @@ function SecondDirectives({ data }) {
           .map(x => x);
           setArrayTest(arrayA);
           // console.log(arrayTest)
-          setcorectdirectiveD(compareArray(arrayTest, data.directive_four))
+          setcorectdirectiveD(compareArray(arrayA, data.directive_four))
 
         }} />
 
@@ -68,8 +68,8 @@ function SecondDirectives({ data }) {
           .split(',')
           .map(x => x);
           setArrayTest(arrayA);
-          // console.log(arrayTest)
-          setcorectdirectiveE(compareArray(arrayTest, data.directive_five))
+          // console.log(arrayTest)arrayA
+          setcorectdirectiveE(compareArray(arrayA, data.directive_five))
 
         }
 
@@ -92,7 +92,7 @@ function SecondDirectives({ data }) {
           .map(x => x);
           setArrayTest(arrayA);
           // console.log(arrayTest)
-          setcorectdirectiveF(compareArray(arrayTest, data.directive_six))
+          setcorectdirectiveF(compareArray(arrayA, data.directive_six))
 
 
           }
