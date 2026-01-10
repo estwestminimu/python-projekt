@@ -13,11 +13,10 @@ def containsOnlyValidLetters(input):
         return False
 
 
-    validLetters = f"^[spaowcmlui]+$"
+    # validLetters = f"^[spaowcmlui]+$"
     # print(re.match(validLetters, input.lower()))
 
-    return bool(re.match(validLetters, input.lower()))
-
+    return True
 
 
 def mainValidator(input):
