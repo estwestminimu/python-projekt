@@ -1,11 +1,8 @@
 
 import { useState } from 'react';
 import axios from 'axios';
-import InputFeedback from './InputFeedback.tsx'
 import FirstDirectives from './FirstDirectives.tsx'
 import SecondDirectives from './SecondDirectives.tsx'
-import UserTypeInput from './UserTypeInput.tsx'
-
 function UserSchemaInput() {
   // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
 
@@ -37,8 +34,10 @@ function UserSchemaInput() {
 
       try {
       // @ts-ignore
-         const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+        //  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
 
+        const API_URL = 'http://127.0.0.1:8000';
+        
         //Wysylamy dane do api wedlug naszych inputow
         const request = await axios.post(`${API_URL}/validation`,{
           firstSentence: firstSentence,
@@ -72,39 +71,40 @@ function UserSchemaInput() {
 
     return (
         <>
-        <InputFeedback status={isInputCorrect ? 'success' : 'warning'}/>
-            <label>
-                Zdanie 1: 
-                <input name="myInput" value={firstSentence}
+                <h3>Zdanie 1: </h3>
+                  <br />
+                <input className='input' placeholder="wpisz coś" type="text"  value={firstSentence}
                 onChange={(e)=>setfirstSentence(e.target.value)}/>  
-
-                <input name="myInput" value={firstScheme}
+           <br />
+                <input className='input' type="text" placeholder="wpisz coś"  value={firstScheme}
                 onChange={(e)=>setfirstScheme(e.target.value)}/>
                 <br />
-                Zdanie 2: 
-                <input name="myInput" value={secondSentence}
+                  <h3>Zdanie 2: </h3>
+                  <br />
+                <input className='input'  type="text" placeholder="wpisz coś" value={secondSentence}
                 onChange={(e)=>setsecondSentence(e.target.value)} /> 
-
-                 <input name="myInput" value={secondScheme} 
+  <br />
+                 <input className='input' type="text" placeholder="wpisz coś" value={secondScheme} 
                  onChange={(e)=>setsecondScheme(e.target.value)}/>
                  <br/>
-                <button
-                    onClick={sendData}
-                    disabled={loading}>
-                    {loading ? "Analizowanie..." : "Wyślij dane"}
-                </button>
-                <h1>test {JSON.stringify(data)}</h1>
-            </label>
+              
+                {/* <h1>test {JSON.stringify(data)}</h1> */}
 
-    <UserTypeInput/>
-       <h1>2</h1>
+       <h4>Uzupełnij dyrektywy</h4>
 
        <br/>
       <FirstDirectives data={data}/>
        <br/>
-       <h1>3</h1>
       <SecondDirectives data={data}/>
+      <div className='cent'>
 
+ <button
+                    onClick={sendData}
+                    disabled={loading}>
+                    {loading ? "Analizowanie..." : "Wyślij dane"}
+                </button>
+
+      </div>
         </>
     )
 }

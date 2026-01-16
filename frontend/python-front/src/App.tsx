@@ -1,5 +1,6 @@
 import UserSchemaInput from './UserSchemaInput.tsx'
 
+import './scss/Main.scss';
 
 
 
@@ -14,14 +15,14 @@ function App() {
 
   return(
     <>
-       <h1>1</h1>
+    
+      <div className='content'>
+      <h1>Lorem ipsum</h1>
 
       <UserSchemaInput/>
-  
-
-
-
+        </div>
     
+  
     </>
   );
 }
