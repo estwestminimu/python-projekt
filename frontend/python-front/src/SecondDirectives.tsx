@@ -48,7 +48,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
     ?.replaceAll(' ', '')
     .split(',');
 
-     setcorectdirectiveF(compareArray(arrayA[0]=='x'? []: arrayA, data.directive_four ))
+     setcorectdirectiveD(compareArray(arrayA[0]=='x'? []: arrayA, data.directive_four ))
 
   }, [selectD, data]);
 
@@ -60,7 +60,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
     const arrayA = selectE
     ?.replaceAll(' ', '')
     .split(',');
-    setcorectdirectiveF(compareArray(arrayA[0]=='x'? []: arrayA, data.directive_five ))
+    setcorectdirectiveE(compareArray(arrayA[0]=='x'? []: arrayA, data.directive_five ))
 
   }, [selectE, data]);
 
@@ -91,6 +91,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
       </h2>
       <span className='info'>Wpisz x w przypadku pustej odpowiedz</span>
 
+      <br/>
 
       <label>
         <input type="text" className='input' placeholder="wpisz coś" onChange={e =>  setselectD(e.target.value)} />
@@ -105,6 +106,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
       Dyrektywa 5:  {data && selectE !==null  && (corectdirectiveE ? "Twoja odpowiedź jest poprawna." : "Twoja odpowiedź jest błędna.")}
       </h2>
       <span className='info'>Wpisz x w przypadku pustej odpowiedz</span>
+      <br/>
 
       <label>
      <input type="text" className='input' placeholder="wpisz coś" onChange={e =>  setselectE(e.target.value)} />
@@ -121,6 +123,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
       </h2>
 
       <span className='info'>Wpisz x w przypadku pustej odpowiedz</span>
+      <br/>
       <label>
        <input type="text" className='input' placeholder="wpisz coś" onChange={e =>  setselectF(e.target.value)} />
 

@@ -20,7 +20,6 @@ function UserSchemaInput() {
 
 
   // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
-  const [isInputCorrect, setIsInputCorrect] = useState(true) 
 
 
 
@@ -29,7 +28,6 @@ function UserSchemaInput() {
     {
       //rozpoczynamy proces ładowania danych
       setLoading(true)
-      setIsInputCorrect(true)
 
 
       try {
@@ -48,10 +46,6 @@ function UserSchemaInput() {
 
         //jesli popelnilismy blad to dostaniemy komunikat ze dane nieporpawne
         setData(request.data)
-        if (request.data.msg===false)
-        {
-            setIsInputCorrect(false)
-        }
 
 
       } catch (err) {
