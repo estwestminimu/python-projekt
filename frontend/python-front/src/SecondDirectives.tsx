@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function compareArray(arr1: string[], arr2: string[]){
   
-  if(arr2.length==0 && arr2.length==0)
+  if(arr1.length==0 && arr2.length==0)
   {
     return true;
   }
@@ -45,7 +45,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
     if (!data ||!selectD || selectD.trim() === '') return;
       
     const arrayA = selectD
-    ?.replaceAll(' ', '')
+    .replaceAll(' ', '')
     .split(',');
 
      setcorectdirectiveD(compareArray(arrayA[0]=='x'? []: arrayA, data.directive_four ))
@@ -58,7 +58,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
     if (!data ||!selectE || selectE.trim() === '') return;
       
     const arrayA = selectE
-    ?.replaceAll(' ', '')
+    .replaceAll(' ', '')
     .split(',');
     setcorectdirectiveE(compareArray(arrayA[0]=='x'? []: arrayA, data.directive_five ))
 
@@ -70,7 +70,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
     if (!data ||!selectF || selectF.trim() === '') return;
       
     const arrayA = selectF
-    ?.replaceAll(' ', '')
+    .replaceAll(' ', '')
     .split(',');
 
     setcorectdirectiveF(compareArray(arrayA[0]=='x'? []: arrayA, data.directive_six ))
