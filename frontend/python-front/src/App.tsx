@@ -1,30 +1,15 @@
-import UserSchemaInput from './UserSchemaInput.tsx'
-
-import './scss/Main.scss';
-
-
-
-
+import UserSchemaInput from "./UserSchemaInput.tsx";
+import "./scss/Main.scss";
 
 function App() {
-  
-  // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
-
-
-
-
-  return(
+  return (
     <>
-    
-      <div className='content'>
-      <h1>Lorem ipsum</h1>
-
-      <UserSchemaInput/>
-        </div>
-    
-  
+      <div className="content">
+        <h1>Lorem ipsum</h1>
+        <UserSchemaInput />
+      </div>
     </>
   );
 }
 
-export default App
+export default App;

@@ -3,17 +3,14 @@
 @use "_font";
 @use "_formatanswers";
 
-
 body {
   font-family: "Roboto Slab", serif;
   font-optical-sizing: auto;
   font-style: normal;
-//   background-color: variables.$color_white;
   color: variables.$color_black;
 }
 
-.content
-{
+.content {
   width: 80%;
   margin: auto;
   align-items: center;
@@ -21,34 +18,36 @@ body {
   margin-top: 2rem;
 }
 
-h4
-{
+h4 {
   font-size: variables.$big_font_size;
   margin-bottom: -2rem;
 }
-h2
-{
+h2 {
   font-size: variables.$main_font_size;
   margin-bottom: 0.5rem;
 }
 
-
-h3
-{
+h3 {
   font-size: variables.$main_font_size;
+  margin-bottom: 0.0rem;
+
 }
 
-.content > h1:first-child
-{
+.content > h1:first-child {
   display: inline-block;
   width: 50rem;
   text-align: center;
 }
 
-.info
+.second
 {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.info {
   display: inline-block;
   font-weight: bold;
-  margin:0.3rem 0 1rem 1rem;
+  margin: 0.3rem 0 1rem 1rem;
   color: variables.$color_black_washed;
 }

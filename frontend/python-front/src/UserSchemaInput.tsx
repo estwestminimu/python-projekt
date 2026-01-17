@@ -1,106 +1,110 @@
+import { useState } from "react";
+import axios from "axios";
+import FirstDirectives from "./FirstDirectives.tsx";
+import SecondDirectives from "./SecondDirectives.tsx";
+import Combinations from "./Combinations.tsx";
+import Answer from "./Answer.tsx";
 
-import { useState } from 'react';
-import axios from 'axios';
-import FirstDirectives from './FirstDirectives.tsx'
-import SecondDirectives from './SecondDirectives.tsx'
+
 function UserSchemaInput() {
   // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
 
   // Czy dane sa ladowane
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
+  const [data, setData] = useState(null);
 
-  const [data, setData] = useState(null)
+  //Nasze inputy
+  const [firstPremise, setFirstPremise] = useState("");
+  const [secondPremise, setSecondPremise] = useState("");
 
-    //Nasze inputy
-    const [firstSentence, setfirstSentence] = useState("")
-    const [firstScheme, setfirstScheme] = useState("")
-    const [secondSentence, setsecondSentence] = useState("")
-    const [secondScheme, setsecondScheme] = useState("")
-
+  const [firstPremiseForm, setFirstPremiseForm] = useState("");
+  const [secondPremiseForm, setSecondPremiseForm] = useState("");
 
   // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
 
+  const sendData = async () => {
+    //rozpoczynamy proces ładowania danych
+    setLoading(true);
 
-
-
-  const sendData = async () => 
-    {
-      //rozpoczynamy proces ładowania danych
-      setLoading(true)
-
-
-      try {
+    try {
       // @ts-ignore
-        // const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
-        const API_URL = 'https://syllogism.onrender.com'
+      // const API_URL = "http://127.0.0.1:8000";
+      const API_URL = "https://syllogism.onrender.com";
 
+      //Wysylamy dane do api wedlug naszych inputow
+      const request = await axios.post(`${API_URL}/validation`, {
+        firstSentence: firstPremise,
+        firstScheme: firstPremiseForm,
+        secondSentence: secondPremise,
+        secondScheme: secondPremiseForm,
+      });
+
+      //jesli popelnilismy blad to dostaniemy komunikat ze dane nieporpawne
+      setData(request.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <>
+      <h3>Zdanie 1: </h3>
+      <input
+        className="input"
+        placeholder="wpisz coś"
+        type="text"
+        value={firstPremise}
+        onChange={(e) => setFirstPremise(e.target.value)}
+      />
+      <h3 className="second">Lorem: </h3>
+      <input
+        className="input"
+        type="text"
+        placeholder="wpisz coś"
+        value={firstPremiseForm}
+        onChange={(e) => setFirstPremiseForm(e.target.value)}
+      />
+      <h3>Zdanie 2: </h3>
+      <input
+        className="input"
+        type="text"
+        placeholder="wpisz coś"
+        value={secondPremise}
+        onChange={(e) => setSecondPremise(e.target.value)}
+      />
+      <h3 className="second">Lorem: </h3>
+      <input
+        className="input"
+        type="text"
+        placeholder="wpisz coś"
+        value={secondPremiseForm}
+        onChange={(e) => setSecondPremiseForm(e.target.value)}
+      />
+      <br />
+
+      {/* <h1>test {JSON.stringify(data)}</h1> */}
+
+      <h4>Uzupełnij wszystkie możliwe kombinacje:</h4>
+      <br />
+      <Combinations data={data} />
+
+      <h4>Uzupełnij dyrektywy:</h4>
+      <br />
+      <FirstDirectives data={data} />
+      <br />
+      <SecondDirectives data={data} />
         
-        //Wysylamy dane do api wedlug naszych inputow
-        const request = await axios.post(`${API_URL}/validation`,{
-          firstSentence: firstSentence,
-          firstScheme: firstScheme,
-          secondSentence: secondSentence,
-          secondScheme: secondScheme,
-        });
-
-        //jesli popelnilismy blad to dostaniemy komunikat ze dane nieporpawne
-        setData(request.data)
-
-
-      } catch (err) {
-        console.log(err)
-      }
-      finally
-    {
-      setLoading(false)
-    }
-
-
-
-    }
-
-
-
-
-    return (
-        <>
-                <h3>Zdanie 1: </h3>
-                  <br />
-                <input className='input' placeholder="wpisz coś" type="text"  value={firstSentence}
-                onChange={(e)=>setfirstSentence(e.target.value)}/>  
-           <br />
-                <input className='input' type="text" placeholder="wpisz coś"  value={firstScheme}
-                onChange={(e)=>setfirstScheme(e.target.value)}/>
-                <br />
-                  <h3>Zdanie 2: </h3>
-                  <br />
-                <input className='input'  type="text" placeholder="wpisz coś" value={secondSentence}
-                onChange={(e)=>setsecondSentence(e.target.value)} /> 
-  <br />
-                 <input className='input' type="text" placeholder="wpisz coś" value={secondScheme} 
-                 onChange={(e)=>setsecondScheme(e.target.value)}/>
-                 <br/>
-              
-                {/* <h1>test {JSON.stringify(data)}</h1> */}
-
-       <h4>Uzupełnij dyrektywy</h4>
-
-       <br/>
-      <FirstDirectives data={data}/>
-       <br/>
-      <SecondDirectives data={data}/>
-      <div className='cent'>
-
- <button
-                    onClick={sendData}
-                    disabled={loading}>
-                    {loading ? "Analizowanie..." : "Wyślij dane"}
-                </button>
-
+      <Answer data={data} />
+      <div className="cent">
+        <button onClick={sendData} disabled={loading}>
+          {loading ? "Analizowanie..." : "Wyślij dane"}
+        </button>
       </div>
-        </>
-    )
+    </>
+  );
 }
 
-export default UserSchemaInput
+export default UserSchemaInput;
