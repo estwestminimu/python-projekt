@@ -31,6 +31,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
+    "https://python-projekt.vercel.app",
 ]
 
 # middleware niwelujacy CORS
@@ -42,16 +43,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: str):
-    result = proces_data(item_id)
-    return result
 
 
 # definicja wygladu json

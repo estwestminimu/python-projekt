@@ -1,35 +1,15 @@
-import { useState, useEffect } from 'react';
-import InputFeedback from './InputFeedback.tsx'
-import UserSchemaInput from './UserSchemaInput.tsx'
-import UserTypeInput from './UserTypeInput.tsx'
-import FirstDirectives from './FirstDirectives.tsx'
-import SecondDirectives from './SecondDirectives.tsx'
-
-
-
-
-
+import UserSchemaInput from "./UserSchemaInput.tsx";
+import "./scss/Main.scss";
 
 function App() {
-  
-  // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
-  const [isInputCorrect, setIsInputCorrect] = useState(false) 
-
-
-
-
-  return(
+  return (
     <>
-       <h1>1</h1>
-
-      <UserSchemaInput/>
-  
-
-
-
-    
+      <div className="content">
+        <h1>Lorem ipsum</h1>
+        <UserSchemaInput />
+      </div>
     </>
   );
 }
 
-export default App
+export default App;

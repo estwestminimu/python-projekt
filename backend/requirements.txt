@@ -1,3 +1,5 @@
 fastapi[standard]
 pydantic
 pytest
+requests
+gunicorn

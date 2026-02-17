@@ -1,0 +1,21 @@
+@use "variables";
+
+h2 {
+  margin-bottom: 0;
+}
+
+.corect_text {
+  color: variables.$color_pine;
+}
+
+.incorect_text {
+  color: variables.$color_red;
+}
+
+.corect_input {
+  border-color: variables.$color_pine;
+}
+
+.incorect_input {
+  border-color: variables.$color_red;
+}

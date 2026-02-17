@@ -1,0 +1,143 @@
+@use "variables";
+
+.input {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  border-radius: variables.$border_radius_button;
+  border: 1px solid variables.$color_camel;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+  margin-bottom: 0.4rem;
+  max-width: 50rem;
+  margin-bottom: 0;
+}
+
+.input:hover {
+  border: 2px solid variables.$color_selected;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.input:active {
+  transform: scale(0.95);
+}
+
+.input:focus {
+  border: 2.3px solid variables.$color_selected;
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid variables.$color_camel;
+  border-radius: variables.$border_radius_button;
+  box-sizing: border-box;
+  color: variables.$color_white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: variables.$main_font_size;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  outline: none;
+  padding: 1rem 2.3rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  background-color: variables.$color_selected;
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 1px 4px;
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.cent {
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  max-width: 100%;
+}
+
+.radio-input input {
+  display: none;
+}
+
+.radio-input {
+  --container_width: 24rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: variables.$border_radius_button;
+  background-color: variables.$color_white;
+  color: variables.$color_black;
+  width: var(--container_width);
+  overflow: hidden;
+  border: 1px solid variables.$color_camel;
+}
+
+.radio-input label {
+  width: 100%;
+  padding: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: variables.$secondary_font_size;
+  letter-spacing: 0.1rem;
+}
+
+.selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 3);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
+}
+
+input[type="radio"] + span:hover {
+  transform: scale(1.05);
+}
+
+.radio-input label:has(input:checked) {
+  color: variables.$color_white;
+  background-color: variables.$color_selected;
+  letter-spacing: 0.2rem;
+}
+
+.radio-input label:has(input:checked) ~ .selection {
+  display: inline-block;
+}
+
+.radio-input label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 0 / 3));
+}
+
+.radio-input label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 1 / 3));
+}
+
+.radio-input label:nth-child(3):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 2 / 3));
+}

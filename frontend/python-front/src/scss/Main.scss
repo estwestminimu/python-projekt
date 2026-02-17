@@ -1,0 +1,53 @@
+@use "variables";
+@use "_input";
+@use "_font";
+@use "_formatanswers";
+
+body {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: variables.$color_black;
+}
+
+.content {
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+h4 {
+  font-size: variables.$big_font_size;
+  margin-bottom: -2rem;
+}
+h2 {
+  font-size: variables.$main_font_size;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: variables.$main_font_size;
+  margin-bottom: 0.0rem;
+
+}
+
+.content > h1:first-child {
+  display: inline-block;
+  width: 50rem;
+  text-align: center;
+}
+
+.second
+{
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.info {
+  display: inline-block;
+  font-weight: bold;
+  margin: 0.3rem 0 1rem 1rem;
+  color: variables.$color_black_washed;
+}
