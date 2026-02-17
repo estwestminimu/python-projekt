@@ -1,14 +1,14 @@
 from collections import Counter
 import re
-
+from formalisation import formaliser
 class Syllogism:
     
     #obiekt syllogizm ma dwa pola, które zawierają przesłanki podane przez usera
     def __init__(self, premise1 : str, premise2: str, formalized = True):
         if formalized == False:
-            #tutaj funkcja formalizująca
-            pass
-
+            premise1 = formaliser(premise1)
+            premise2 = formaliser(premise2)
+            
         # gdy formalizacja będzie zrobiona, to na podstawie podanych przesłanek tworzona jest lista wniosków
         #formalizacja jest podawana przez usera i sprawdzana metodami klasy sylogizm lub tworzona przez nas
         #self.consequences ...
