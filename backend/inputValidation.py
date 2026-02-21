@@ -2,16 +2,15 @@ import re
 
 
 def containsOnlyValidLetters(input):
-    #ciag dlugosci 3
+    # ciag dlugosci 3
     if len(input) != 3:
-          return False
-    
+        return False
+
     if not input.isalpha():
-        return False 
+        return False
 
     if input[0].islower() or input[1].isupper() or input[2].islower():
         return False
-
 
     # validLetters = f"^[spaowcmlui]+$"
     # print(re.match(validLetters, input.lower()))
@@ -22,12 +21,10 @@ def containsOnlyValidLetters(input):
 def mainValidator(input):
 
     validDataList = [
-    containsOnlyValidLetters(input.firstScheme),
-    containsOnlyValidLetters(input.secondScheme)
+        containsOnlyValidLetters(input.firstScheme),
+        containsOnlyValidLetters(input.secondScheme)
 
     ]
-
-
 
     if all(validDataList):
         return True
@@ -37,6 +34,4 @@ def mainValidator(input):
 
 def validate_data(input):
 
-   return mainValidator(input)
-    
-
+    return mainValidator(input)

@@ -7,6 +7,9 @@ from jsonOutputFormater import jsonOutputFormater
 
 from formalisation import formaliser
 
+from db.log import log
+
+
 app = FastAPI()
 
 # Porty z ktorych moze przychodzic zapytanie API
@@ -26,12 +29,13 @@ app.add_middleware(
 )
 
 # definicja wygladu json dla programu
+
+
 class UserInput(BaseModel):
     firstSentence: str
     firstScheme: str
     secondSentence: str
     secondScheme: str
-
 
 
 # definicja wygladu json dla zdania
@@ -43,12 +47,27 @@ class FormaliserInput(BaseModel):
 async def read_user(data: UserInput):
 
     if validate_data(data):
-        return jsonOutputFormater(data)  
+        output = jsonOutputFormater(data)
     else:
-        return {"msg": False}
-    
+        output = {"msg": False}
+
+    log(
+        endpoint="/validation",
+        input_data=data.model_dump(),
+        output_data=output
+    )
+    return output
+
 
 @app.post("/formalize")
 async def read_user(data: FormaliserInput):
     result = formaliser(data.premise)
-    return {"output": result}
+    output = {"output": result}
+    log(
+        endpoint="/formalize",
+        input_data={"premise": data.premise},
+        output_data=output
+
+    )
+    result = formaliser(data.premise)
+    return output
