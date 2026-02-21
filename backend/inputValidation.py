@@ -40,4 +40,3 @@ def validate_data(input):
    return mainValidator(input)
     
 
-

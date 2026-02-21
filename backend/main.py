@@ -1,11 +1,11 @@
 from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from logic import proces_data
 from inputValidation import validate_data
 from pydantic import BaseModel
 from jsonOutputFormater import jsonOutputFormater
 
+from formalisation import formaliser
 
 app = FastAPI()
 
@@ -25,12 +25,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# definicja wygladu json
+# definicja wygladu json dla programu
 class UserInput(BaseModel):
     firstSentence: str
     firstScheme: str
     secondSentence: str
     secondScheme: str
+
+
+
+# definicja wygladu json dla zdania
+class FormaliserInput(BaseModel):
+    premise: str
 
 
 @app.post("/validation")
@@ -40,3 +46,9 @@ async def read_user(data: UserInput):
         return jsonOutputFormater(data)  
     else:
         return {"msg": False}
+    
+
+@app.post("/formalize")
+async def read_user(data: FormaliserInput):
+    result = formaliser(data.premise)
+    return {"output": result}
