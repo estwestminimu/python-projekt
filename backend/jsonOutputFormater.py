@@ -1,5 +1,4 @@
 from syllogism import Syllogism
-
 from pydantic import BaseModel
 
 
@@ -14,15 +13,7 @@ class ResponseScheme(BaseModel):
     answer: list
 
 
-
-
 def jsonOutputFormater(input):
-    # print(f"111111 {input.firstScheme}")
-    # print(input)
-    # print(syllog.possible_consequences)
-
-    # syllog.directive_one()
-
     syllog = Syllogism(input.firstScheme, input.secondScheme, formalized=True)
     return ResponseScheme(
         possible_consequences=syllog.possible_consequences,

@@ -1,28 +1,10 @@
 from typing import Union
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
 from logic import proces_data
 from inputValidation import validate_data
-
-
-
 from pydantic import BaseModel
-
-
-
 from jsonOutputFormater import jsonOutputFormater
-
-
-
-# do testowania potem usunać
-
-
-import random
-
-# 
-
 
 
 app = FastAPI()
@@ -43,10 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-
 # definicja wygladu json
-
 class UserInput(BaseModel):
     firstSentence: str
     firstScheme: str
@@ -54,21 +33,10 @@ class UserInput(BaseModel):
     secondScheme: str
 
 
-
-
 @app.post("/validation")
 async def read_user(data: UserInput):
-    # print(data)
-    
-    # TODO dodać walidacje 
-
-    # Sprawdzamy 
-
 
     if validate_data(data):
-
-
         return jsonOutputFormater(data)  
     else:
         return {"msg": False}
-        
