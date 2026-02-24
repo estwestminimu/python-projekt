@@ -55,7 +55,15 @@ W folderze ``python-front``:
 
 ```bash
     npm install
-    npm run dev 
+    npm run dev  
 ```
+
+### Testy
+
+Test stworzony za pomocą pytest. Uruchomienie: 
+```
+python3.13 -m pytest tests/test_python.py -v
+```
+
 
 
