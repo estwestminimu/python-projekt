@@ -40,13 +40,12 @@ function Combinations({ data }: CombinationsProps) {
             : "Twoja odpowiedź jest błędna.")}
       </h2>
 
-      <span className="info">Wpisz x w przypadku pustej odpowiedzi</span>
       <br />
       <label>
         <input
           type="text"
           className="input"
-          placeholder="wpisz coś"
+          placeholder="Wypisz wnioski"
           onChange={(e) => setAllPossibleCombinations(e.target.value)}
         />
       </label>

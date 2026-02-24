@@ -31,7 +31,7 @@ function Answer({ data }: CombinationsProps) {
               : "incorect_text"
             : ""
         }
-      > Twoja odpowiedź
+      > Możliwe wnioski
         {" "}
         {data &&
           allPossibleCombinations !== null &&
@@ -40,13 +40,12 @@ function Answer({ data }: CombinationsProps) {
             : " jest błędna.")}
       </h4>
             <h2 style={{marginTop:"2rem"}}></h2>
-      <span className="info">Wpisz x w przypadku pustej odpowiedzi</span>
       <br />
       <label>
         <input
           type="text"
           className="input"
-          placeholder="wpisz coś"
+          placeholder="Wpisz możliwe wnioski. W przypadku braku wpisz x."
           onChange={(e) => setAllPossibleCombinations(e.target.value)}
         />
       </label>

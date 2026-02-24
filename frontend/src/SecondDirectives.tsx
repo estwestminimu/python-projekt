@@ -82,7 +82,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
             ? "Twoja odpowiedź jest poprawna."
             : "Twoja odpowiedź jest błędna.")}
       </h2>
-      <span className="info">Wpisz x w przypadku pustej odpowiedzi</span>
+      <span className="info">Wniosek jest zdaniem przeczącym wtedy i tylko wtedy gdy jedna z przestanek jest zdaniem przeczącym.</span>
 
       <br />
 
@@ -90,7 +90,7 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
         <input
           type="text"
           className="input"
-          placeholder="wpisz coś"
+          placeholder="Wypisz eliminowane wnioski. W przypadku, gdy żaden wniosk nie jest eliminowany wpisz x."
           onChange={(e) => setUserAnswer_D(e.target.value)}
         />
       </label>
@@ -111,14 +111,14 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
             ? "Twoja odpowiedź jest poprawna."
             : "Twoja odpowiedź jest błędna.")}
       </h2>
-      <span className="info">Wpisz x w przypadku pustej odpowiedzi</span>
+      <span className="info">Jeżeli jedna przesłanka jest szczegółowa, to wniosek jest szczegółowy. </span>
       <br />
 
       <label>
         <input
           type="text"
           className="input"
-          placeholder="wpisz coś"
+          placeholder="Wypisz eliminowane wnioski. W przypadku, gdy żaden wniosk nie jest eliminowany wpisz x."
           onChange={(e) => setUserAnswer_E(e.target.value)}
         />
       </label>
@@ -141,13 +141,13 @@ function SecondDirectives({ data }: SecondDirectivesProps) {
             : "Twoja odpowiedź jest błędna.")}
       </h2>
 
-      <span className="info">Wpisz x w przypadku pustej odpowiedzi</span>
+      <span className="info">Termin rozłożony we wniosku, to musi być rozłożony w przesłance.</span>
       <br />
       <label>
         <input
           type="text"
           className="input"
-          placeholder="wpisz coś"
+          placeholder="Wypisz eliminowane wnioski. W przypadku, gdy żaden wniosk nie jest eliminowany wpisz x."
           onChange={(e) => setUserAnswer_F(e.target.value)}
         />
       </label>

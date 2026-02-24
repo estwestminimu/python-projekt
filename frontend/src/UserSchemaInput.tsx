@@ -61,20 +61,20 @@ function UserSchemaInput() {
 
   return (
     <>
-      <h3>Zdanie 1: </h3>
+      <h3>Przesłanka 1: </h3>
       <input
         className="input"
-        placeholder="wpisz coś"
+        placeholder="Wpisz przesłankę"
         type="text"
         value={firstPremise}
         onChange={(e) => setFirstPremise(e.target.value)}
       />
-      <h3 className="second">Lorem: </h3>
+      <h3 className="second">Formalizacja przesłanki 1: </h3>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <input
           className="input"
           type="text"
-          placeholder="wpisz coś"
+          placeholder="Zapisz formalnie przesłankę lub naciśnij formalizuj"
           value={firstPremiseForm}
           onChange={(e) => setFirstPremiseForm(e.target.value)}
         />
@@ -83,20 +83,20 @@ function UserSchemaInput() {
         </button>
       </div>
 
-      <h3>Zdanie 2: </h3>
+      <h3>Przesłanka 2: </h3>
       <input
         className="input"
         type="text"
-        placeholder="wpisz coś"
+        placeholder="Wpisz przesłankę"
         value={secondPremise}
         onChange={(e) => setSecondPremise(e.target.value)}
       />
-      <h3 className="second">Lorem: </h3>
+      <h3 className="second">Formalizacja przesłanki 2: </h3>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <input
           className="input"
           type="text"
-          placeholder="wpisz coś"
+          placeholder="Zapisz formalnie przesłankę lub naciśnij formalizuj"
           value={secondPremiseForm}
           onChange={(e) => setSecondPremiseForm(e.target.value)}
         />
@@ -106,11 +106,11 @@ function UserSchemaInput() {
       </div>
       <br />
 
-      <h4>Uzupełnij wszystkie możliwe kombinacje:</h4>
+      <h4>Wypisz wszystkie możliwe wnioski:</h4>
       <br />
       <Combinations data={data} />
 
-      <h4>Uzupełnij dyrektywy:</h4>
+      <h4>Sprawdź dyrektywy:</h4>
       <br />
       <FirstDirectives data={data} />
       <br />
@@ -119,7 +119,7 @@ function UserSchemaInput() {
       <Answer data={data} />
       <div className="cent">
         <button onClick={sendData} disabled={loading}>
-          {loading ? "Analizowanie..." : "Wyślij dane"}
+          {loading ? "Analizowanie..." : "Sprawdź"}
         </button>
       </div>
     </>

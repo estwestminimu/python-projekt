@@ -64,6 +64,7 @@ function FirstDirectives({ data }: FirstDirectivesProps) {
             ? "Twoja odpowiedź jest poprawna."
             : "Twoja odpowiedź jest błędna.")}
       </h2>
+      <span className="info">Termin średni powinien być w przynajmniej jednej z przesłanek wzięty w całym zakresie.</span>
 
       <div className="radio-input">
         <label>
@@ -104,6 +105,8 @@ function FirstDirectives({ data }: FirstDirectivesProps) {
             ? "Twoja odpowiedź jest poprawna."
             : "Twoja odpowiedź jest błędna.")}
       </h2>
+      <span className="info">Przynajmniej jedna przesłanka powinna być twierdząca.</span>
+      
       <div className="radio-input">
         <label>
           <input
@@ -143,6 +146,8 @@ function FirstDirectives({ data }: FirstDirectivesProps) {
             ? "Twoja odpowiedź jest poprawna."
             : "Twoja odpowiedź jest błędna.")}
       </h2>
+      <span className="info">Przynajmniej jedna przesłanka powinna być ogólna.</span>
+
       <div className="radio-input">
         <label>
           <input
