@@ -15,7 +15,7 @@ przykłady = [
 
 
 for przykład in przykłady:
-    syllog = Syllogism(przykład[0][0], przykład[0][1], formalized=True)
+    syllog = Syllogism(premise1=przykład[0][0], premise2=przykład[0][1], formalized=True)
     print(f"Możliwe wnioski przed dyrektywami: {syllog.possible_consequences}")
     print(f"\nDyrektywa 1 (termin średni rozłożony): {syllog.directive_one()}")
     print(f"Dyrektywa 2 (przynajmniej jedna twierdząca): {syllog.directive_two()}")
@@ -25,3 +25,14 @@ for przykład in przykłady:
     print(f"Dyrektywa 6 -> wykluczone: {syllog.directive_six()}")
     print(f"\nMożliwe wnioski po dyrektywach: {syllog.possible_consequences}")
     print(f"Prawidłowa odpowiedź --> {przykład[-1]}")
+
+syllog = Syllogism("LaU", "LiO")
+print(syllog.possible_consequences)
+print(syllog.directive_one())
+print(syllog.directive_two())
+print(syllog.directive_three())
+print(syllog.directive_four())
+print(syllog.possible_consequences)
+
+
+
