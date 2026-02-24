@@ -1,11 +1,12 @@
 from collections import Counter
 import re
-from formalisation import formaliser
+
 class Syllogism:
-    
+
     #obiekt syllogizm ma dwa pola, które zawierają przesłanki podane przez usera
     def __init__(self, premise1 : str, premise2: str, formalized = True):
         if formalized == False:
+            from backend.formalisation import formaliser
             premise1 = formaliser(premise1)
             premise2 = formaliser(premise2)
             
@@ -50,19 +51,6 @@ class Syllogism:
         self.midterm = "".join([k for k, v in self.terms_dict.items() if v == 2])
 
     
-
-    #TODO
-    def formalize(self) -> str: 
-        """
-        Function which can encode premise of syllogism 
-        from natural language to formal notation. 
-        e.g. Każdy kwadrat jest prostokątem -> KaP
-        
-        :param self: Description
-        """
-        pass
-
-
     def compose(self, fpremise1 : str, fpremise2 : str) -> list:
         """
         Docstring for compose
@@ -78,15 +66,6 @@ class Syllogism:
         fpremise2 = fpremise2.replace("'", "")
         return [fpremise1, fpremise2]
 
-    #TODO
-    def directive_zero(self) -> bool:
-        # niechaj nie będzie 4
-        #[SaM, SiP]
-        # ile jest wielkich liter; najlepiej zrobić zbiór len({}) == 3.
-        if len(self.terms_dict.keys()) != 3:
-            return False
-        
-        return True
     
 
     def directive_one(self) -> bool:
