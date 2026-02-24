@@ -1,0 +1,213 @@
+// ── InfoAccordion ────────────────────────────────────────────────────────────
+
+$accent:       #4f6ef7;
+$accent-light: #eef1fe;
+$border:       #dde2f0;
+$text:         #1a1d2e;
+$text-muted:   #6b7280;
+$bg:           #ffffff;
+$bg-section:   #f8f9fd;
+$radius:       12px;
+$radius-sm:    8px;
+$font-mono:    "JetBrains Mono", "Fira Code", "Courier New", monospace;
+
+.info-accordion {
+  width: 100%;
+  border: 1.5px solid $border;
+  border-radius: $radius;
+  background: $bg;
+  box-shadow: 0 2px 12px rgba(79, 110, 247, 0.07);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 24px rgba(79, 110, 247, 0.13);
+  }
+
+  // ── Toggle button ──────────────────────────────────────────────────────────
+  &__toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, $accent-light 0%, #f0f3ff 100%);
+    border: none;
+    cursor: pointer;
+    gap: 1rem;
+    transition: background 0.25s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, darken($accent-light, 3%) 0%, #e8ecff 100%);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent;
+      outline-offset: -2px;
+    }
+  }
+
+  &__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: $accent;
+    text-transform: uppercase;
+  }
+
+  &__chevron {
+    color: $accent;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  // ── Animated wrapper ───────────────────────────────────────────────────────
+  &__body-wrapper {
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+  }
+
+  // ── Content body ──────────────────────────────────────────────────────────
+  &__body {
+    padding: 0.5rem 0 1rem;
+  }
+
+  // ── Sections ──────────────────────────────────────────────────────────────
+  &__section {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid $border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &--warning {
+      background: #fffbf0;
+      border-left: 4px solid #f59e0b;
+
+      h2 {
+        color: #92400e;
+      }
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: $text;
+      margin: 0 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid $accent-light;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: $text;
+      margin: 0 0 0.75rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0 0.75rem;
+
+      li {
+        font-size: 0.9rem;
+        line-height: 1.75;
+        color: $text;
+        margin-bottom: 0.4rem;
+        padding-left: 0.25rem;
+      }
+    }
+
+    strong {
+      color: $accent;
+      font-weight: 600;
+    }
+  }
+
+  // ── Formula badges ────────────────────────────────────────────────────────
+  &__formula {
+    display: inline-block;
+    font-family: $font-mono;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: $accent;
+    background: $accent-light;
+    border: 1px solid darken($accent-light, 8%);
+    border-radius: 4px;
+    padding: 0.1em 0.45em;
+    margin-right: 0.45rem;
+    letter-spacing: 0.04em;
+  }
+
+  // ── Example block ─────────────────────────────────────────────────────────
+  &__example {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    background: $bg-section;
+    border: 1px solid $border;
+    border-left: 3px solid $accent;
+    border-radius: $radius-sm;
+    padding: 0.75rem 1rem;
+    margin: 0.6rem 0;
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    color: $text;
+
+    span {
+      line-height: 1.6;
+    }
+  }
+
+  // ── Directive rows ────────────────────────────────────────────────────────
+  &__directive {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0.5rem 1rem;
+    align-items: baseline;
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed $border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    p {
+      margin: 0 !important;
+    }
+  }
+
+  &__directive-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: $accent;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 640px) {
+  .info-accordion {
+    &__section {
+      padding: 1.25rem 1rem;
+    }
+
+    &__directive {
+      grid-template-columns: 1fr;
+    }
+
+    &__directive-label {
+      margin-bottom: 0.15rem;
+    }
+  }
+}
