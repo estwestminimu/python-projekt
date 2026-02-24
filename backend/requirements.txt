@@ -3,3 +3,4 @@ pydantic
 pytest
 requests
 gunicorn
+spacy

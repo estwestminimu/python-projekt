@@ -1,28 +1,13 @@
 from typing import Union
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from logic import proces_data
 from inputValidation import validate_data
-
-
-
 from pydantic import BaseModel
-
-
-
 from jsonOutputFormater import jsonOutputFormater
 
+from formalisation import formaliser
 
-
-# do testowania potem usunać
-
-
-import random
-
-# 
-
+from db.log import log
 
 
 app = FastAPI()
@@ -43,9 +28,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# definicja wygladu json dla programu
 
-
-# definicja wygladu json
 
 class UserInput(BaseModel):
     firstSentence: str
@@ -54,21 +38,36 @@ class UserInput(BaseModel):
     secondScheme: str
 
 
+# definicja wygladu json dla zdania
+class FormaliserInput(BaseModel):
+    premise: str
 
 
 @app.post("/validation")
 async def read_user(data: UserInput):
-    # print(data)
-    
-    # TODO dodać walidacje 
-
-    # Sprawdzamy 
-
 
     if validate_data(data):
-
-
-        return jsonOutputFormater(data)  
+        output = jsonOutputFormater(data)
     else:
-        return {"msg": False}
-        
+        output = {"msg": False}
+
+    log(
+        endpoint="/validation",
+        input_data=data.model_dump(),
+        output_data=output
+    )
+    return output
+
+
+@app.post("/formalize")
+async def read_user(data: FormaliserInput):
+    result = formaliser(data.premise)
+    output = {"output": result}
+    log(
+        endpoint="/formalize",
+        input_data={"premise": data.premise},
+        output_data=output
+
+    )
+    result = formaliser(data.premise)
+    return output

@@ -5,42 +5,52 @@ import SecondDirectives from "./SecondDirectives.tsx";
 import Combinations from "./Combinations.tsx";
 import Answer from "./Answer.tsx";
 
+const API_URL = "http://127.0.0.1:8000";
 
 function UserSchemaInput() {
+
   // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
+
+
 
   // Czy dane sa ladowane
   const [loading, setLoading] = useState(false);
+  const [formalizing, setFormalizing] = useState<{ first: boolean; second: boolean }>({ first: false, second: false });
 
   const [data, setData] = useState(null);
 
-  //Nasze inputy
   const [firstPremise, setFirstPremise] = useState("");
   const [secondPremise, setSecondPremise] = useState("");
 
   const [firstPremiseForm, setFirstPremiseForm] = useState("");
   const [secondPremiseForm, setSecondPremiseForm] = useState("");
 
-  // do sprawdzenia czy dane wprowadzone przez użytkownika sa poprawne
+  const formalize = async (which: "first" | "second") => {
+    const premise = which === "first" ? firstPremise : secondPremise;
+    if (!premise.trim()) return;
+
+    setFormalizing((prev) => ({ ...prev, [which]: true }));
+    try {
+      const response = await axios.post(`${API_URL}/formalize`, { premise });
+      const result = response.data.output;
+      if (which === "first") setFirstPremiseForm(result);
+      else setSecondPremiseForm(result);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setFormalizing((prev) => ({ ...prev, [which]: false }));
+    }
+  };
 
   const sendData = async () => {
-    //rozpoczynamy proces ładowania danych
     setLoading(true);
-
     try {
-      // @ts-ignore
-      // const API_URL = "http://127.0.0.1:8000";
-      const API_URL = "https://syllogism.onrender.com";
-
-      //Wysylamy dane do api wedlug naszych inputow
       const request = await axios.post(`${API_URL}/validation`, {
         firstSentence: firstPremise,
         firstScheme: firstPremiseForm,
         secondSentence: secondPremise,
         secondScheme: secondPremiseForm,
       });
-
-      //jesli popelnilismy blad to dostaniemy komunikat ze dane nieporpawne
       setData(request.data);
     } catch (err) {
       console.log(err);
@@ -60,13 +70,19 @@ function UserSchemaInput() {
         onChange={(e) => setFirstPremise(e.target.value)}
       />
       <h3 className="second">Lorem: </h3>
-      <input
-        className="input"
-        type="text"
-        placeholder="wpisz coś"
-        value={firstPremiseForm}
-        onChange={(e) => setFirstPremiseForm(e.target.value)}
-      />
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <input
+          className="input"
+          type="text"
+          placeholder="wpisz coś"
+          value={firstPremiseForm}
+          onChange={(e) => setFirstPremiseForm(e.target.value)}
+        />
+        <button onClick={() => formalize("first")} disabled={formalizing.first || !firstPremise.trim()}>
+          {formalizing.first ? "..." : "Formalizuj"}
+        </button>
+      </div>
+
       <h3>Zdanie 2: </h3>
       <input
         className="input"
@@ -76,16 +92,19 @@ function UserSchemaInput() {
         onChange={(e) => setSecondPremise(e.target.value)}
       />
       <h3 className="second">Lorem: </h3>
-      <input
-        className="input"
-        type="text"
-        placeholder="wpisz coś"
-        value={secondPremiseForm}
-        onChange={(e) => setSecondPremiseForm(e.target.value)}
-      />
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <input
+          className="input"
+          type="text"
+          placeholder="wpisz coś"
+          value={secondPremiseForm}
+          onChange={(e) => setSecondPremiseForm(e.target.value)}
+        />
+        <button onClick={() => formalize("second")} disabled={formalizing.second || !secondPremise.trim()}>
+          {formalizing.second ? "..." : "Formalizuj"}
+        </button>
+      </div>
       <br />
-
-      {/* <h1>test {JSON.stringify(data)}</h1> */}
 
       <h4>Uzupełnij wszystkie możliwe kombinacje:</h4>
       <br />
@@ -96,7 +115,7 @@ function UserSchemaInput() {
       <FirstDirectives data={data} />
       <br />
       <SecondDirectives data={data} />
-        
+
       <Answer data={data} />
       <div className="cent">
         <button onClick={sendData} disabled={loading}>
