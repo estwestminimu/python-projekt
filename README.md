@@ -98,7 +98,9 @@ W folderze ``backend``:
 python3.13 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-fastapi dev main.py
+python3.13 -m spacy download pl_core_news_lg
+cd ..
+fastapi dev backend/main.py
 ```
 
 ### Frontend
