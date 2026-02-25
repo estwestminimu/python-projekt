@@ -21,7 +21,7 @@ Poniższy program umożliwia rozwiązywanie prostych zadań z zakresu sylogistyk
 
 Zadanie to należy wykonać następująco: 
 •	wybieramy interesujący nas układ przesłanek i wprowadzamy pierwszą przesłankę w pole oznaczone „przesłanka 1” oraz drugą przesłankę w pole „przesłanka 2”;
-•	następnie możemy sami podać odpowiednik formalny wprowadzonej przesłanki np. „Każdy kwadrat jest prostokątem”  KaP lub skorzystać z opcji „FORMALIZUJ”;
+•	następnie możemy sami podać odpowiednik formalny wprowadzonej przesłanki np. „Każdy kwadrat jest prostokątem” ---> KaP lub skorzystać z opcji „FORMALIZUJ”;
 •	w kolejnym kroku musimy wprowadzić wszystkie możliwe wnioski w pole „możliwe wnioski”. Możliwe wnioski wyznaczamy poprzez ustalenie, które z terminów (nazw) we wprowadzonych przez nas przesłankach wystąpiły tylko raz, a następnie rozważenie ich wszystkich możliwych kombinacji;
 przykładowo dla układu przesłanek: 
 Każdy fizyk jest geniuszem (FaG)
@@ -70,10 +70,14 @@ Wyjaśnienie: termin jest rozłożony, jeżeli jest wzięty w całym zakresie, c
     - spacy
 
 ### Funkcjonalności
-Główny silnik odpowiadający za sprawdzanie rozumowania logicznego znajduje się w pliku [syllogism.py](backend/syllogism.py). Algorytm jest autorską koncepcją. 
-W pliku [formalisation.py](backend/formalisation.py) opracowaliśmy algorytm, który umożliwia zamianę zdań wyrażonych w języku naturalnym, na formalny język sylogistyki. 
-Przykład: INPUT: „Każdy kwadrat jest prostokątem" ----> OUTPUT: KaP 
+Główny silnik odpowiadający za sprawdzanie rozumowania logicznego znajduje się w pliku [syllogism.py](backend/syllogism.py). Algorytm jest autorską koncepcją.
+<br/>
+W pliku [formalisation.py](backend/formalisation.py) opracowaliśmy algorytm, który umożliwia zamianę zdań wyrażonych w języku naturalnym, na formalny język sylogistyki.
+<br/>
+Przykład: INPUT: „Każdy kwadrat jest prostokątem" ----> OUTPUT: KaP
+<br/>
 [Endpointy](backend/main.py) zostały stworzony z zastosowaniem fastapi. Zadbaliśmy od weryfikacje poprawności wprowadzanych danych [inputValidation.py](backend/inputValidation.py).
+<br/>
 Dodatkwowo dodaliśmy [bazę danych](backend/db), która umożliwia zbieranie logów dotyczących zadań wprowadzanych do aplikacji, co w przyszłości pozwoli na wykonywanie analiz dotyczących najczęściej rozwiązywanych zadań.
 
 ## Hosting
