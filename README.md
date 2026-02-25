@@ -76,7 +76,7 @@ W pliku [formalisation.py](backend/formalisation.py) opracowaliśmy algorytm, kt
 <br/>
 Przykład: INPUT: „Każdy kwadrat jest prostokątem" ----> OUTPUT: KaP
 <br/>
-[Endpointy](backend/main.py) zostały stworzony z zastosowaniem fastapi. Zadbaliśmy od weryfikacje poprawności wprowadzanych danych [inputValidation.py](backend/inputValidation.py).
+[Endpointy](backend/main.py) zostały stworzony z zastosowaniem fastapi. Zadbaliśmy o weryfikacje poprawności wprowadzanych danych [inputValidation.py](backend/inputValidation.py).
 <br/>
 Dodatkwowo dodaliśmy [bazę danych](backend/db), która umożliwia zbieranie logów dotyczących zadań wprowadzanych do aplikacji, co w przyszłości pozwoli na wykonywanie analiz dotyczących najczęściej rozwiązywanych zadań.
 
