@@ -1,4 +1,4 @@
-from syllogism import Syllogism
+from backend.syllogism import Syllogism
 from pydantic import BaseModel
 
 
