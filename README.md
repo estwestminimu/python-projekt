@@ -95,7 +95,7 @@ Dodatkwowo dodaliśmy [bazę danych](backend/db), która umożliwia zbieranie lo
 ### Backend
 W folderze ``backend``:
 ```bash
-python3 -m venv .venv
+python3.13 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 fastapi dev main.py
