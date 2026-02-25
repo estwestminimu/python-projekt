@@ -31,8 +31,8 @@ def formaliser(premise : str):
     types_of_sentence = {
         ("każdy", False): "a",
         ("żaden", True): "e",
-        ("niektóre", False): "i",
-        ("niektóre", True): "o"
+        ("niektóry", False): "i",
+        ("niektóry", True): "o"
         }
     normalized_text = premise.replace("\n", "").replace(".", "")
     tokens = nlp(normalized_text)

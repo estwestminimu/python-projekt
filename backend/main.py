@@ -1,13 +1,13 @@
 from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from inputValidation import validate_data
+from backend.inputValidation import validate_data
 from pydantic import BaseModel
-from jsonOutputFormater import jsonOutputFormater
+from backend.jsonOutputFormater import jsonOutputFormater
 
-from formalisation import formaliser
+from backend.formalisation import formaliser
 
-from db.log import log
+from backend.db.log import log
 
 
 app = FastAPI()
