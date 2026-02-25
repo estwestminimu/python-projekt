@@ -5,7 +5,7 @@ import SecondDirectives from "./SecondDirectives.tsx";
 import Combinations from "./Combinations.tsx";
 import Answer from "./Answer.tsx";
 
-const API_URL = "https://syllogism.onrender.com";
+const API_URL = "http://127.0.0.1:8000";
 
 function UserSchemaInput() {
   const [loading, setLoading] = useState(false);
