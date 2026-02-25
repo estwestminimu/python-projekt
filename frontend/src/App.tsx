@@ -12,7 +12,7 @@ function InfoAccordion() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
-        <span>Początek strony</span>
+        <span>Wprowadzenie</span>
         <span className="info-accordion__chevron">{open ? "▲" : "▼"}</span>
       </button>
 
