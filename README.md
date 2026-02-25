@@ -3,6 +3,8 @@
 
  **Aplikacja do nauki sylogistyki**
 
+## Autorzy: Szymon Tomaszewski i Jakub Figura
+
 ## Czym jest sylogistyka? 
 
 Sylogistyka to rachunek logiczny, który umożliwia formalną analizę poprawności wnioskowania. Jest to jeden z najprostszych rachunków logicznych, którego podwaliny stworzył Arystoteles. 
