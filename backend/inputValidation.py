@@ -12,9 +12,6 @@ def containsOnlyValidLetters(input):
     if input[0].islower() or input[1].isupper() or input[2].islower():
         return False
 
-    # validLetters = f"^[spaowcmlui]+$"
-    # print(re.match(validLetters, input.lower()))
-
     return True
 
 
