@@ -15,7 +15,7 @@ SoP: „Niektóre S nie są P”
 
 Rozumowania sylogistyczne składają się z dwóch przesłanek oraz wniosku. Mając do dyspozycji dwie przesłanki, możemy określić, czy istnieje możliwość wyprowadzenie z nich wniosków, a jeżeli tak, to jakie wnioski mogą zostać wyprowadzone. Wyprowadzenie wniosku, który pozostaje do przesłanek w relacji wynikania logicznego możliwe jest dzięki zastosowaniu tzw. dyrektyw poprawności sylogizmu. Zostaną one omówione w dalszej części. 
 
-##Co umożliwia program? 
+## Co umożliwia program? 
 
 Poniższy program umożliwia rozwiązywanie prostych zadań z zakresu sylogistyki, które polegają na wyprowadzeniu wniosku na podstawie przesłanek. 
 
@@ -29,7 +29,7 @@ Niektórzy informatycy nie są fizykami (IoF)
 termin „fizyk” wystąpił dwa razy, wniosek będzie zawierać więc termin „informatyk” oraz „geniusz”: GaI, GeI, GiI, GoI, IaG, IeG, IiG, IoG
 •	następnie możemy przystąpić do analizy naszego układu przesłanek poprzez rozstrzyganie, czy kolejne dyrektywy są spełnione (dyrektywy 1 – 3) oraz czy na podstawie podanej dyrektywy można wykluczyć jeden z możliwych wniosków (dyrektywy 4 – 6).
 
-##O czym stanowią dyrektywy poprawności sylogizmu? 
+## O czym stanowią dyrektywy poprawności sylogizmu? 
 
 - Dyrektywa pierwsza: „Termin średni powinien być w przynajmniej jednej z przesłanek wzięty w całym zakresie”. 
 Wyjaśnienie: termin średni, to termin, który pojawia się w obu przesłankach. Przykładowo dla przesłanek „Każdy fizyk jest geniuszem” (FaG) oraz „Niektórzy informatycy nie są fizykami” (IoF) terminem średnim jest termin „fizyk” (F). Termin jest wzięty w całym zakresie (rozłożony), jeżeli jest podmiotem zdania ogólnego (Xa…, Xe…) lub orzecznikiem zdania przeczącego (…eX, …oX). 
