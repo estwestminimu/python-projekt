@@ -69,6 +69,13 @@ Wyjaśnienie: termin jest rozłożony, jeżeli jest wzięty w całym zakresie, c
     - gunicorn
     - spacy
 
+### Funkcjonalności
+Główny silnik odpowiadający za sprawdzanie rozumowania logicznego znajduje się w pliku [syllogism.py](backend/syllogism.py). Algorytm jest autorską koncepcją. 
+W pliku [formalisation.py](backend/formalisation.py) opracowaliśmy algorytm, który umożliwia zamianę zdań wyrażonych w języku naturalnym, na formalny język sylogistyki. 
+Przykład: INPUT: „Każdy kwadrat jest prostokątem" ----> OUTPUT: KaP 
+[Endpointy](backend/main.py) zostały stworzony z zastosowaniem fastapi. Zadbaliśmy od weryfikacje poprawności wprowadzanych danych [inputValidation.py](backend/inputValidation.py).
+Dodatkwowo dodaliśmy [bazę danych](backend/db), która umożliwia zbieranie logów dotyczących zadań wprowadzanych do aplikacji, co w przyszłości pozwoli na wykonywanie analiz dotyczących najczęściej rozwiązywanych zadań.
+
 ## Hosting
 - Backend: [Render](https://render.com)
 - Frontend: [Vercel](https://vercel.com/)
@@ -105,6 +112,12 @@ Test stworzony za pomocą pytest. Uruchomienie:
 python3.13 -m pytest tests/test_python.py -v
 ```
 
+## Demo
+
+Przygotowaliśmy demo aplikacji, jednak z uwagi na zastosowanie biblioteki spacy do przetwarzania języka naturalnego, nie udało się nam dokonać hostingu backendu w ramach darmowej subskrybcji, ponieważ plik wykorzystywany do analizy morfologicznej zdania wymaga 0.5 gb. 
+- Aplikacja: https://python-projekt.vercel.app
+- API: https://syllogism.onrender.com/validation
+    - Dokumentacja (Swagger UI): https://syllogism.onrender.com/docs
 
 
 
